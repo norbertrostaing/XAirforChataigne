@@ -1,0 +1,2041 @@
+{
+	"name": "X-Air/M-Air Control",
+	"type": "OSC",
+	"path": "Hardware",
+	
+	"version": "0.1",
+	"description": "Allow you to control a Xair or mair console",
+	"url":"https://github.com/norbertrostaing/XAirforChataigne",
+	"downloadURL": "https://github.com/norbertrostaing/XAirforChataigne/archive/refs/heads/main.zip",
+	
+	"hasInput": false,
+	"hasOutput": false, 
+
+	"hideDefaultCommands": false,
+	"hideDefaultParameters": [
+	],
+
+	"defaults": {
+		"OSC Outputs": {
+			"OSC Output": {
+				"local" : false,
+				"remotePort" : 10024,
+				"listenToFeedback":true
+			}
+		}
+	},
+	
+	"parameters": {
+	},
+	
+	"scripts": [
+		"xair.js"
+	],
+	
+	"values": {
+	},
+	
+	"commands": {
+		
+		"config_name" : {
+			"menu" : "Generic",
+			"callback" : "generic_config_name",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin",
+						"FX return" : "fxrtn",
+						"Bus" : "bus",
+						"Matrix" : "mtx",
+						"DCA" : "dca"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "String"
+				}, 
+			}
+		},
+
+		"config_icon" : {
+			"menu" : "Generic",
+			"callback" : "generic_config_icon",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin",
+						"FX return" : "fxrtn",
+						"Bus" : "bus",
+						"Matrix" : "mtx",
+						"DCA" : "dca"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":74,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"config_color" : {
+			"menu" : "Generic",
+			"callback" : "generic_config_color",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin",
+						"FX return" : "fxrtn",
+						"Bus" : "bus",
+						"Matrix" : "mtx",
+						"DCA" : "dca"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"OFF" : 0,
+						"RD" : 1,
+						"GN" : 2,
+						"YE" : 3,
+						"BL" : 4,
+						"MG" : 5,
+						"CY" : 6,
+						"WH" : 7,
+						"OFFi" : 8,
+						"RDi" : 9,
+						"GNi" : 10,
+						"YEi" : 11,
+						"BLi" : 12,
+						"MGi" : 13,
+						"CYi" : 14,
+						"WHi" : 15
+					}
+				}, 
+			}
+		},
+
+
+		"config_source" : {
+			"menu" : "Generic",
+			"callback" : "generic_config_source",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"Off" : 0,
+						"In1" : 1,
+						"In2" : 2,
+						"In3" : 3,
+						"In4" : 4,
+						"In5" : 5,
+						"In6" : 6,
+						"In7" : 7,
+						"In8" : 8,
+						"In9" : 9,
+						"In10" : 10,
+						"In11" : 11,
+						"In12" : 12,
+						"In13" : 13,
+						"In14" : 14,
+						"In15" : 15,
+						"In16" : 16,
+						"In17" : 17,
+						"In18" : 18,
+						"In19" : 19,
+						"In20" : 20,
+						"In21" : 21,
+						"In22" : 22,
+						"In23" : 23,
+						"In24" : 24,
+						"In25" : 25,
+						"In26" : 26,
+						"In27" : 27,
+						"In28" : 28,
+						"In29" : 29,
+						"In30" : 30,
+						"In31" : 31,
+						"In32" : 32,
+						"Aux1" : 33,
+						"Aux2" : 34,
+						"Aux3" : 35,
+						"Aux4" : 36,
+						"Aux5" : 37,
+						"Aux6" : 38,
+						"USB L" : 39,
+						"USB R" : 40,
+						"FX1 L" : 41,
+						"FX1 R" : 42,
+						"FX2 L" : 43,
+						"FX2 R" : 44,
+						"FX3 L" : 45,
+						"FX3 R" : 46,
+						"FX4 L" : 47,
+						"FX4 R" : 48,
+						"Bus 1" : 49,
+						"Bus 2" : 50,
+						"Bus 3" : 51,
+						"Bus 4" : 52,
+						"Bus 5" : 53,
+						"Bus 6" : 54,
+						"Bus 7" : 55,
+						"Bus 8" : 56,
+						"Bus 9" : 57,
+						"Bus 10" : 58,
+						"Bus 11" : 59,
+						"Bus 12" : 60,
+						"Bus 13" : 61,
+						"Bus 14" : 62,
+						"Bus 15" : 63,
+						"Bus 16" : 64
+					}
+				}, 
+			}
+		},
+
+		"delay_on" : {
+			"menu" : "Generic",
+			"callback" : "generic_delay_on",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"Off" : 0,
+						"On" : 1,
+					}
+				}, 
+			}
+		},
+
+		"delay_time" : {
+			"menu" : "Generic",
+			"callback" : "generic_delay_time",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"preamp_trim" : {
+			"menu" : "Generic",
+			"callback" : "generic_preamp_trim",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"preamp_invert" : {
+			"menu" : "Generic",
+			"callback" : "generic_preamp_invert",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"Off" : 0,
+						"On" : 1,
+					}
+				}, 
+			}
+		},
+
+		"preamp_hpon" : {
+			"menu" : "Generic",
+			"callback" : "generic_preamp_hpon",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"Off" : 0,
+						"On" : 1,
+					}
+				}, 
+			}
+		},
+
+		"preamp_hpslope" : {
+			"menu" : "Generic",
+			"callback" : "generic_preamp_hpslope",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"12" : 0,
+						"18" : 1,
+						"24" : 2,
+					}
+				}, 
+			}
+		},
+
+		"preamp_hpf" : {
+			"menu" : "Generic",
+			"callback" : "generic_preamp_hpf",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"gate_on" : {
+			"menu" : "Generic",
+			"callback" : "generic_gate_on",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"Off" : 0,
+						"On" : 1,
+					}
+				}, 
+			}
+		},
+
+		"gate_mode" : {
+			"menu" : "Generic",
+			"callback" : "generic_gate_mode",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"EXP2" : 0,
+						"EXP3" : 1,
+						"EXP4" : 2,
+						"GATE" : 3,
+						"DUCK" : 4
+					}
+				}, 
+			}
+		},
+
+		"gate_thr" : {
+			"menu" : "Generic",
+			"callback" : "generic_gate_thr",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"gate_range" : {
+			"menu" : "Generic",
+			"callback" : "generic_gate_range",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"gate_attack" : {
+			"menu" : "Generic",
+			"callback" : "generic_gate_attack",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"gate_hold" : {
+			"menu" : "Generic",
+			"callback" : "generic_gate_hold",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"gate_release" : {
+			"menu" : "Generic",
+			"callback" : "generic_gate_release",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"gate_keysrc" : {
+			"menu" : "Generic",
+			"callback" : "generic_gate_keysrc",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"Off" : 0,
+						"In1" : 1,
+						"In2" : 2,
+						"In3" : 3,
+						"In4" : 4,
+						"In5" : 5,
+						"In6" : 6,
+						"In7" : 7,
+						"In8" : 8,
+						"In9" : 9,
+						"In10" : 10,
+						"In11" : 11,
+						"In12" : 12,
+						"In13" : 13,
+						"In14" : 14,
+						"In15" : 15,
+						"In16" : 16,
+						"In17" : 17,
+						"In18" : 18,
+						"In19" : 19,
+						"In20" : 20,
+						"In21" : 21,
+						"In22" : 22,
+						"In23" : 23,
+						"In24" : 24,
+						"In25" : 25,
+						"In26" : 26,
+						"In27" : 27,
+						"In28" : 28,
+						"In29" : 29,
+						"In30" : 30,
+						"In31" : 31,
+						"In32" : 32,
+						"Aux1" : 33,
+						"Aux2" : 34,
+						"Aux3" : 35,
+						"Aux4" : 36,
+						"Aux5" : 37,
+						"Aux6" : 38,
+						"USB L" : 39,
+						"USB R" : 40,
+						"FX1 L" : 41,
+						"FX1 R" : 42,
+						"FX2 L" : 43,
+						"FX2 R" : 44,
+						"FX3 L" : 45,
+						"FX3 R" : 46,
+						"FX4 L" : 47,
+						"FX4 R" : 48,
+						"Bus 1" : 49,
+						"Bus 2" : 50,
+						"Bus 3" : 51,
+						"Bus 4" : 52,
+						"Bus 5" : 53,
+						"Bus 6" : 54,
+						"Bus 7" : 55,
+						"Bus 8" : 56,
+						"Bus 9" : 57,
+						"Bus 10" : 58,
+						"Bus 11" : 59,
+						"Bus 12" : 60,
+						"Bus 13" : 61,
+						"Bus 14" : 62,
+						"Bus 15" : 63,
+						"Bus 16" : 64
+					}
+				}, 
+			}
+		},
+
+		"gate_filter_on" : {
+			"menu" : "Generic",
+			"callback" : "generic_gate_filter_on",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"Off" : 0,
+						"On" : 1,
+					}
+				}, 
+			}
+		},
+
+		"gate_filter_type" : {
+			"menu" : "Generic",
+			"callback" : "generic_gate_filter_type",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"LC6" : 0,
+						"LC12" : 1,
+						"HC6" : 2,
+						"HC12" : 3,
+						"1.0" : 4,
+						"2.0" : 5,
+						"3.0" : 6,
+						"5.0" : 7,
+						"10.0" : 8
+					}
+				}, 
+			}
+		},
+
+		"gate_filter_f" : {
+			"menu" : "Generic",
+			"callback" : "generic_gate_filter",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"dyn_on" : {
+			"menu" : "Generic",
+			"callback" : "generic_dyn_on",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"Off" : 0,
+						"On" : 1,
+					}
+				}, 
+			}
+		},
+
+		"dyn_mode" : {
+			"menu" : "Generic",
+			"callback" : "generic_dyn_mode",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"Comp" : 0,
+						"Exp" : 1
+					}
+				}, 
+			}
+		},
+
+		"dyn_det" : {
+			"menu" : "Generic",
+			"callback" : "generic_dyn_det",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"PEAK" : 0,
+						"RMS" : 1
+					}
+				}, 
+			}
+		},
+
+		"dyn_env" : {
+			"menu" : "Generic",
+			"callback" : "generic_dyn_env",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"LIN" : 0,
+						"LOG" : 1
+					}
+				}, 
+			}
+		},
+
+		"dyn_thr" : {
+			"menu" : "Generic",
+			"callback" : "generic_dyn_thr",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"dyn_ratio" : {
+			"menu" : "Generic",
+			"callback" : "generic_dyn_ratio",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"1.1" : 1,
+						"1.3" : 2,
+						"1.5" : 3,
+						"2.0" : 4,
+						"2.5" : 5,
+						"3.0" : 6,
+						"4.0" : 7,
+						"5.0" : 8,
+						"7.0" : 9,
+						"10" : 10,
+						"20" : 11,
+						"100" : 12
+					}
+				}, 
+			}
+		},
+
+		"dyn_knee" : {
+			"menu" : "Generic",
+			"callback" : "generic_dyn_knee",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"dyn_mgain" : {
+			"menu" : "Generic",
+			"callback" : "generic_dyn_mgain",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"dyn_attack" : {
+			"menu" : "Generic",
+			"callback" : "generic_dyn_attack",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"dyn_hold" : {
+			"menu" : "Generic",
+			"callback" : "generic_dyn_hold",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"dyn_release" : {
+			"menu" : "Generic",
+			"callback" : "generic_dyn_release",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"dyn_pos" : {
+			"menu" : "Generic",
+			"callback" : "generic_dyn_pos",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"PRE" : 0,
+						"POST" : 1
+					}
+				}, 
+			}
+		},
+
+		"dyn_keysrc" : {
+			"menu" : "Generic",
+			"callback" : "generic_dyn_keysrc",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"Off" : 0,
+						"In1" : 1,
+						"In2" : 2,
+						"In3" : 3,
+						"In4" : 4,
+						"In5" : 5,
+						"In6" : 6,
+						"In7" : 7,
+						"In8" : 8,
+						"In9" : 9,
+						"In10" : 10,
+						"In11" : 11,
+						"In12" : 12,
+						"In13" : 13,
+						"In14" : 14,
+						"In15" : 15,
+						"In16" : 16,
+						"In17" : 17,
+						"In18" : 18,
+						"In19" : 19,
+						"In20" : 20,
+						"In21" : 21,
+						"In22" : 22,
+						"In23" : 23,
+						"In24" : 24,
+						"In25" : 25,
+						"In26" : 26,
+						"In27" : 27,
+						"In28" : 28,
+						"In29" : 29,
+						"In30" : 30,
+						"In31" : 31,
+						"In32" : 32,
+						"Aux1" : 33,
+						"Aux2" : 34,
+						"Aux3" : 35,
+						"Aux4" : 36,
+						"Aux5" : 37,
+						"Aux6" : 38,
+						"USB L" : 39,
+						"USB R" : 40,
+						"FX1 L" : 41,
+						"FX1 R" : 42,
+						"FX2 L" : 43,
+						"FX2 R" : 44,
+						"FX3 L" : 45,
+						"FX3 R" : 46,
+						"FX4 L" : 47,
+						"FX4 R" : 48,
+						"Bus 1" : 49,
+						"Bus 2" : 50,
+						"Bus 3" : 51,
+						"Bus 4" : 52,
+						"Bus 5" : 53,
+						"Bus 6" : 54,
+						"Bus 7" : 55,
+						"Bus 8" : 56,
+						"Bus 9" : 57,
+						"Bus 10" : 58,
+						"Bus 11" : 59,
+						"Bus 12" : 60,
+						"Bus 13" : 61,
+						"Bus 14" : 62,
+						"Bus 15" : 63,
+						"Bus 16" : 64
+					}
+				}, 
+			}
+		},
+
+		"dyn_mix" : {
+			"menu" : "Generic",
+			"callback" : "generic_dyn_mix",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"dyn_auto" : {
+			"menu" : "Generic",
+			"callback" : "generic_dyn_auto",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"Off" : 0,
+						"On" : 1,
+					}
+				}, 
+			}
+		},
+
+		"dyn_filter_on" : {
+			"menu" : "Generic",
+			"callback" : "generic_dyn_filter_on",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"Off" : 0,
+						"On" : 1,
+					}
+				}, 
+			}
+		},
+
+		"dyn_filter_type" : {
+			"menu" : "Generic",
+			"callback" : "generic_dyn_filter_type",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"LC6" : 0,
+						"LC12" : 1,
+						"HC6" : 2,
+						"HC12" : 3,
+						"1.0" : 4,
+						"2.0" : 5,
+						"3.0" : 6,
+						"5.0" : 7,
+						"10.0" : 8
+					}
+				}, 
+			}
+		},
+
+		"dyn_filter_f" : {
+			"menu" : "Generic",
+			"callback" : "generic_dyn_filter_f",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"insert_on" : {
+			"menu" : "Generic",
+			"callback" : "generic_insert_on",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"Off" : 0,
+						"On" : 1,
+					}
+				}, 
+			}
+		},
+
+		"insert_pos" : {
+			"menu" : "Generic",
+			"callback" : "generic_insert_pos",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"PRE" : 0,
+						"POST" : 1,
+					}
+				}, 
+			}
+		},
+
+		"insert_sel" : {
+			"menu" : "Generic",
+			"callback" : "generic_insert_sel",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"PRE" : 0,
+						"POST" : 1,
+						"OFF" : 0,
+						"FX1L" : 1,
+						"FX1R" : 2,
+						"FX2L" : 3,
+						"FX2R" : 4,
+						"FX3L" : 5,
+						"FX3R" : 6,
+						"FX4L" : 7,
+						"FX4R" : 8,
+						"FX5L" : 9,
+						"FX5R" : 10,
+						"FX6L" : 11,
+						"FX6R" : 12,
+						"FX7L" : 13,
+						"FX7R" : 14,
+						"FX8L" : 15,
+						"FX8R" : 16,
+						"AUX1" : 17,
+						"AUX2" : 18,
+						"AUX3" : 19,
+						"AUX4" : 20,
+						"AUX5" : 21,
+						"AUX6" : 22
+					}
+				}, 
+			}
+		},
+
+		"eq_on" : {
+			"menu" : "Generic",
+			"callback" : "generic_eq_on",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin",
+						"FX return" : "fxrtn",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"Off" : 0,
+						"On" : 1,
+					}
+				}, 
+			}
+		},
+
+		"eq_type" : {
+			"menu" : "Generic",
+			"callback" : "generic_eq_type",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin",
+						"FX return" : "fxrtn",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"LCut" : 0,
+						"LShv" : 1,
+						"PEQ" : 2,
+						"VEQ" : 3,
+						"HShv" : 4,
+						"HCut" : 5
+					}
+				}, 
+			}
+		},
+
+		"eq_f" : {
+			"menu" : "Generic",
+			"callback" : "generic_eq_f",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin",
+						"FX return" : "fxrtn",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Band": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":4,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"eq_g" : {
+			"menu" : "Generic",
+			"callback" : "generic_eq_g",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin",
+						"FX return" : "fxrtn",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Band": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":4,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"eq_q" : {
+			"menu" : "Generic",
+			"callback" : "generic_eq_q",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin",
+						"FX return" : "fxrtn",
+						"Bus" : "bus",
+						"Matrix" : "mtx"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Band": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":4,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"mix_on" : {
+			"menu" : "Generic",
+			"callback" : "generic_mix_on",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin",
+						"FX return" : "fxrtn",
+						"Bus" : "bus",
+						"Matrix" : "mtx",
+						"DCA" : "dca"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"Off" : 0,
+						"On" : 1,
+					}
+				}, 
+			}
+		},
+
+		"mix_fader" : {
+			"menu" : "Generic",
+			"callback" : "generic_mix_fader",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin",
+						"FX return" : "fxrtn",
+						"Bus" : "bus",
+						"Matrix" : "mtx",
+						"DCA" : "dca"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"mix_st" : {
+			"menu" : "Generic",
+			"callback" : "generic_mix_st",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin",
+						"FX return" : "fxrtn",
+						"Bus" : "bus"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"Off" : 0,
+						"On" : 1,
+					}
+				}, 
+			}
+		},
+
+		"mix_pan" : {
+			"menu" : "Generic",
+			"callback" : "generic_mix_pan",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin",
+						"FX return" : "fxrtn",
+						"Bus" : "bus"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"mix_mono" : {
+			"menu" : "Generic",
+			"callback" : "generic_mix_mono",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin",
+						"FX return" : "fxrtn",
+						"Bus" : "bus"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"Off" : 0,
+						"On" : 1,
+					}
+				}, 
+			}
+		},
+
+		"mix_mlevel" : {
+			"menu" : "Generic",
+			"callback" : "generic_mix_mlevel",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin",
+						"FX return" : "fxrtn",
+						"Bus" : "bus"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"mix_send_on" : {
+			"menu" : "Generic",
+			"callback" : "generic_mix_on",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin",
+						"FX return" : "fxrtn",
+						"Bus" : "bus"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Mix": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":16,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Enum",
+					"options": {
+						"On" : 1,
+						"Off" : 0
+					}
+				}, 
+			}
+		},
+
+		"mix_send_level" : {
+			"menu" : "Generic",
+			"callback" : "generic_mix_send_level",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin",
+						"FX return" : "fxrtn",
+						"Bus" : "bus"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Mix": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":16,
+					"useForMapping": true
+				}, 
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"mix_send_pan" : {
+			"menu" : "Generic",
+			"callback" : "generic_mix_send_pan",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin",
+						"FX return" : "fxrtn",
+						"Bus" : "bus"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Mix": {
+					"type":"Enum",
+					"option":{
+						"01-02" : "01",
+						"03-04" : "03",
+						"05-06" : "05",
+						"07-08" : "07",
+						"09-10" : "09",
+						"11-12" : "11",
+						"13-14" : "13",
+						"15-16" : "15"
+					}
+				},
+				"Value": {
+					"type": "Float",
+					"default": 0, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}, 
+			}
+		},
+
+		"mix_send_Type" : {
+			"menu" : "Generic",
+			"callback" : "generic_mix_send_Type",
+			"parameters" : {
+				"Target type" : {
+					"type":"Enum",
+					"options": {
+						"Channel" : "ch",
+						"Aux in" : "auxin",
+						"FX return" : "fxrtn",
+						"Bus" : "bus"
+					}
+				},
+				"Channel": {
+					"type": "Integer",
+					"default": 1, 
+					"min":1,
+					"max":32,
+					"useForMapping": true
+				}, 
+				"Mix": {
+					"type":"Enum",
+					"option":{
+						"01-02" : "01",
+						"03-04" : "03",
+						"05-06" : "05",
+						"07-08" : "07",
+						"09-10" : "09",
+						"11-12" : "11",
+						"13-14" : "13",
+						"15-16" : "15"
+					}
+				},
+				"Value": {
+					"type": "Enum",
+					"options" : {
+						"IN/LC" : 0,
+						"<-EQ" : 1,
+						"EQ->" : 2,
+						"PRE" : 3,
+						"POST" :4,
+						"GRP" : 5
+					}
+				}, 
+			}
+		},
+
+	}
+}

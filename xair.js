@@ -6,6 +6,8 @@ var myParameters = {};
 
 function init() {
 	local.values.addContainer("Meters");
+	local.values.removeContainer("UI");
+	local.values.addContainer("UI");
 	for (var i = 0; i < meters.length; i++) {
 		var n = meters[i];
 		var p = local.values.getChild("Meters").addFloatParameter(n,n,0,0,1);
@@ -23,6 +25,7 @@ var meters = [
 
 
 function oscEvent(address, args) {
+	var arrayAddress = address.split("/");
 	if (address == "/meters/1") {
 		for(var i=0; i < args.length; i++) {
 			var data = args[i];
@@ -33,11 +36,15 @@ function oscEvent(address, args) {
 					// script.log(f);
 					var n = meters[index];
 					local.values.getChild("Meters").getChild(n).set(f);
-
 				}
 			}
 		}
-	} else {}
+	} else {
+		script.log(address);
+		if (["ch"].indexOf(arrayAddress[1])>=0) {
+			setValue(arrayAddress, args[0]);
+		}
+	}
 }
 
 function bytesToFloat(bytes) {
@@ -74,8 +81,30 @@ function update(deltaTime) {
 
 function keepAlive() {
 	local.send("/meters", "/meters/1");
+	local.send("/xremote");
 }
 
+function setValue(address, val) {
+	var currentContainer = local.values.getChild("UI");
+	for (var i = 1; i< address.length-1; i++) {
+		var container = currentContainer.getChild(address[i]);
+		if (container == null) {
+			currentContainer.addContainer(address[i]);
+		}
+		currentContainer = container;
+	}
+	var name = address[address.length-1];
+	var param = currentContainer.getChild(name);
+	if (param == null) {
+		if (parseFloat(val) == val) {
+			param = currentContainer.addFloatParameter(name, name,0,0,1);
+		} else {
+			param = currentContainer.addStringParameter(name, name, "");
+		}
+	}
+	param.set(val);
+
+}
 
 ///  Generic controller
 
@@ -351,7 +380,7 @@ function generic_mix_mlevel(targetType, targetNumber, value) { // // /ch/XX/mix/
 	local.send("/"+targetType+"/"+targetNumber+"/mix/mlevel", value);
 }
 
-function generic_mix_on(targetType, targetNumber, mix, value) { // // /ch/XX/mix/0116/on enum {OFF, ON}
+function generic_mix_send_on(targetType, targetNumber, mix, value) { // // /ch/XX/mix/0116/on enum {OFF, ON}
 	if (targetNumber < 10) {targetNumber = "0"+targetNumber; } 
 	if (mix < 10) {mix = "0"+mix; } 
 	local.send("/"+targetType+"/"+targetNumber+"/mix/"+mix+"/on", value);

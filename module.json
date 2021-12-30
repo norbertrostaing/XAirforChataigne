@@ -1875,7 +1875,7 @@
 
 		"mix_send_on" : {
 			"menu" : "Generic",
-			"callback" : "generic_mix_on",
+			"callback" : "generic_mix_send_on",
 			"parameters" : {
 				"Target type" : {
 					"type":"Enum",

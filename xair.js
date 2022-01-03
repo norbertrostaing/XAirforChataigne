@@ -3,16 +3,19 @@
 
 */
 var myParameters = {};
+var paramUseMeters;
+var paramUseControls;
 
 function init() {
 	local.values.addContainer("Meters");
-	local.values.removeContainer("UI");
 	local.values.addContainer("UI");
+	
+	paramUseMeters = local.parameters.addBoolParameter("Use Meters", "Ask the console to send meters to chataigne" , false);
+	paramUseControls = local.parameters.addBoolParameter("Use Control Feedback", "Ask the console to send control values to chataigne", false);
 	for (var i = 0; i < meters.length; i++) {
 		var n = meters[i];
 		var p = local.values.getChild("Meters").addFloatParameter(n,n,0,0,1);
 	}
-
 }
 
 var meters = [
@@ -80,8 +83,12 @@ function update(deltaTime) {
 }
 
 function keepAlive() {
-	local.send("/meters", "/meters/1");
-	local.send("/xremote");
+	if (paramUseMeters.get()) {
+		local.send("/meters", "/meters/1");
+	}
+	if (paramUseControls.get()) {
+		local.send("/xremote");
+	}
 }
 
 function setValue(address, val) {

@@ -363,8 +363,12 @@ function generic_mix_on(targetType, targetNumber, value) { // // /ch/XX/mix/on e
 }
 
 function generic_mix_fader(targetType, targetNumber, value) { // // /ch/XX/mix/fader level [0.0...1.0(+10dB), 1024] dB 
-	if (targetNumber < 10) {targetNumber = "0"+targetNumber; } 
-	local.send("/"+targetType+"/"+targetNumber+"/mix/fader", value);
+	if (targetType == "dca") {
+		local.send("/"+targetType+"/"+targetNumber+"/fader", value);
+	} else {
+		if (targetNumber < 10) {targetNumber = "0"+targetNumber; } 
+		local.send("/"+targetType+"/"+targetNumber+"/mix/fader", value);
+	}
 }
 
 function generic_mix_st(targetType, targetNumber, value) { // // /ch/XX/mix/st enum {OFF, ON}

@@ -1,5 +1,3 @@
-# Soundcraft UI Control
-Control Soundcraft UI12, UI16, UI24 in Chataigne
+# XAir / MAir for chataigne
 
-You can control parameters and send from chataigne.
-All UI parameters are send to chataigne to be use in mappings.
+default port must be 10024
